@@ -96,8 +96,9 @@ swapon /var/$FILENAME
 echo "Enabling your Swap File During Boot"
 echo "/var/$FILENAME    none    swap    sw    0    0" >> /etc/fstab
 
-clear
 
+echo -e ""&>/dev/tty
+echo -e ""&>/dev/tty
 echo -e "Swappiness tells the Linux kernel/VM handler how likely it should use VM."&>/dev/tty
 echo -e "It is a percent value, between 0 & 100."&>/dev/tty
 echo -e "If you set this value to 1, the VM handler will be least likely to use"&>/dev/tty
@@ -106,6 +107,7 @@ echo -e "If you set it to 100, the VM handler will be most likely to use availab
 echo -e "swap space and will try to leave a greater portion of system memory free for use."&>/dev/tty
 echo -e "If you don't know,hit enter it will be set to 40% by default."&>/dev/tty
 echo -e "If you set invalid value, It will automatically set value to 40%."&>/dev/tty
+echo -e ""&>/dev/tty
 while true; do
 read -e -p "Set Swappiness Percentage: " uswapy
 	if [ $uswapy ]
