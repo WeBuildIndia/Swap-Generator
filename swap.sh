@@ -30,7 +30,7 @@ free | grep Swap
 echo "If This is first swap. swap in the above line should be 0 and should look like"&>/dev/tty
 echo "Swap:            0          0          0"
 while true; do
-read -e -p "Is it first Swap on this server? " yn
+read -e -p "Is it first Swap on this server (y/n)?" yn
 
     if [[ $yn = y ]] ; then
 	  SWAP='new'
@@ -116,7 +116,12 @@ read -e -p "Set Swappiness Percentage: " uswapy
 				sysctl -w vm.swappiness=40
 				break;
 			else
+			if [ $uswapy -ne 0 -o $uswapy -eq 0 2>/dev/null ]
+				then
 				sysctl -w vm.swappiness=uswapy;
+				else
+				sysctl -w vm.swappiness=40;
+				fi
 			break;
 			fi
 	else
