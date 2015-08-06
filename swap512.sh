@@ -30,7 +30,7 @@ fi
 # Check If this First Swap On Server
 free -o
 echo "If This is first swap. swap in the above line should be 0 and should look like"&>/dev/tty
-echo "Swap:      		 0          0     	   0"
+echo "Swap:            0          0          0"
 while true; do
 read -e -p "Is it first Swap on this server? " yn
 
