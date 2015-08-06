@@ -70,16 +70,16 @@ done
 echo "Creating Swap..!";
 cd /var
 
-	if [[ $SWAP == *"old"* ]]
-	then
-		while true; do
-		read -e -p "Enter Name of new swap file: " filename
-		EXTANSION='.img'
-		[ -f /var/$filename$EXTANSION ] && echo "File $filename$EXTANSION already exist" || FILENAME=$filename$EXTANSION break;
-		done
-	else
+	#if [[ $SWAP == *"old"* ]]
+	#then
+	#	while true; do
+	#	read -e -p "Enter Name of new swap file: " filename
+	#	EXTANSION='.img'
+	#	[ -f /var/$filename$EXTANSION ] && echo "File $filename$EXTANSION already exist" || FILENAME=$filename$EXTANSION break;
+	#	done
+	#else
 	FILENAME='swap.img'
-	fi
+	#fi
 	
 touch $FILENAME
 chmod 600 $FILENAME
