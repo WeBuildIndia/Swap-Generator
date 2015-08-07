@@ -25,10 +25,17 @@ if [ $UID -ne 0 ]; then
   exit 1
 fi
 
+echo ""&>/dev/tty
+echo "This script is only supported for first swap of your linux server."&>/dev/tty
+echo "Follow below instructions to make sure this is first swap."&>/dev/tty
+echo "If not you old swap may override"&>/dev/tty
+echo ""&>/dev/tty
+echo ""&>/dev/tty
+
 # Check If this is the first swap on server
 free | grep Swap
 echo "If This is first swap. swap in the above line should be 0 and should look like"&>/dev/tty
-echo "Swap:            0          0          0"
+echo "Swap:            0          0          0"&>/dev/tty
 while true; do
 read -e -p "Is it first Swap on this server (y/n)?" yn
 
@@ -39,7 +46,7 @@ read -e -p "Is it first Swap on this server (y/n)?" yn
 	
 	if [[ $yn = n ]] ; then
 	  SWAP='old'
-	  break;
+	  exit 1
 	fi
 	
 done
